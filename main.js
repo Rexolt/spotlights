@@ -49,6 +49,7 @@ app.whenReady().then(() => {
 
   const shortcut = 'Control+Shift+Space';
   const registered = globalShortcut.register(shortcut, toggleWindow);
+
   if (!registered) console.error(`${shortcut} registration failed`);
 
   ipcMain.on('launch-item', (_, itemPath) => {
@@ -84,4 +85,3 @@ app.whenReady().then(() => {
 app.on('will-quit', () => {
   globalShortcut.unregisterAll();
 });
-
